@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gastos.databinding.ItemGastoBinding
 
-class GastoAdapter(var datalist: List<GastoModel>) : RecyclerView.Adapter<GastoAdapter.GastoHolder>() {
+class GastoAdapter(var datalist: MutableList<GastoModel>) : RecyclerView.Adapter<GastoAdapter.GastoHolder>() {
 
   inner class GastoHolder(val binding: ItemGastoBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -17,7 +17,7 @@ class GastoAdapter(var datalist: List<GastoModel>) : RecyclerView.Adapter<GastoA
   }
 
   override fun onBindViewHolder(holder: GastoHolder, position: Int) {
-    var item = datalist.get(position)
+    var item = datalist[position]
     holder.binding.tvAmount.text = item.amount.toString()
     holder.binding.tvDate.text = item.date.toString()
     holder.binding.tvName.text = item.name
