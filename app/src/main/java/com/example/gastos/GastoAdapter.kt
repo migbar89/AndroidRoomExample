@@ -24,6 +24,8 @@ class GastoAdapter(var datalist: MutableList<GastoModel>) : RecyclerView.Adapter
     holder.binding.tvState.text = item.state.toString()
     holder.binding.ivEdit.setOnClickListener {
       var intent = Intent(holder.binding.root.context, ActivityAdd::class.java)
+      MainActivity.itemGastoSelect = item
+      MainActivity.isEdit =true
       holder.binding.root.context.startActivity(intent)
     }
   }

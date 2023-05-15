@@ -46,8 +46,9 @@ class MainActivity : AppCompatActivity() {
 //    )
 //  }
   fun cargarDatos() {
-    GlobalScope.launch(Dispatchers.IO) {
 
+
+    GlobalScope.launch(Dispatchers.IO) {
       listGastos = dataBaseInstance!!.GastoDao().obtenerGasto()
 
       withContext(Dispatchers.Main) {
@@ -62,6 +63,7 @@ class MainActivity : AppCompatActivity() {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     if (item.itemId == R.id.menu_add_gasto) {
       var intent = Intent(this, ActivityAdd::class.java)
+      isEdit =false;
       startActivity(intent)
     }
     return super.onOptionsItemSelected(item)
@@ -76,6 +78,8 @@ class MainActivity : AppCompatActivity() {
   companion object {
     var listGastos: MutableList<GastoModel> = mutableListOf()
     var dataBaseInstance: RoomDabase? = null
+    var itemGastoSelect :GastoModel ?=null
+    var isEdit = false
   }
 
   override fun onRestart() {
