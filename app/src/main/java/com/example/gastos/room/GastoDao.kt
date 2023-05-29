@@ -1,12 +1,15 @@
 package com.example.gastos.room
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.room.*
 import com.example.gastos.GastoModel
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface GastoDao {
   @Query("SELECT * from gasto")
-  fun obtenerGasto(): MutableList<GastoModel>
+  fun obtenerGasto(): Flow<List<GastoModel>>
 
   @Insert(onConflict = OnConflictStrategy.IGNORE)
   suspend fun guardarGasto(gastoModel: GastoModel)

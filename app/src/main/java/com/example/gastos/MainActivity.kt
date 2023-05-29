@@ -3,11 +3,15 @@ package com.example.gastos
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gastos.databinding.ActivityMainBinding
 import com.example.gastos.room.RoomDabase
+import com.example.gastos.viewModel.GastoViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
@@ -16,6 +20,7 @@ import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
   private lateinit var binding: ActivityMainBinding
+  private lateinit var viewModel: GastoViewModel
   private lateinit var adapterGastos: GastoAdapter
 
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,40 +28,25 @@ class MainActivity : AppCompatActivity() {
     binding = ActivityMainBinding.inflate(layoutInflater)
     val view = binding.root
     setContentView(view)
-    dataBaseInstance = RoomDabase.getDatabase(this)
 
     binding.rvRecycler.layoutManager = LinearLayoutManager(this)
-    cargarDatos()
+    viewModel = ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(GastoViewModel::class.java)
+    observeEvents()
+
 
     val toolbar = binding.toolbar
     setSupportActionBar(toolbar)
-
-
   }
-
-  //  private fun InitListGastos() {
-//    var date = SimpleDateFormat("dd/MM/yyyy", Locale("es", "ES")).format(Date())
-//    listGastos = arrayListOf(
-//      GastoModel("Super Mercado", date, 100, "Cancel"),
-//      GastoModel("Transporte", date, 300, "Pending"),
-//      GastoModel("Alquiler", date, 2500, "Cancel"),
-//      GastoModel("Super Mercado1", date, 100, "Cancel"),
-//      GastoModel("Transporte2", date, 300, "Pending"),
-//      GastoModel("Alquiler3", date, 2500, "Cancel")
-//    )
-//  }
-  fun cargarDatos() {
-    GlobalScope.launch(Dispatchers.IO) {
-
-      listGastos = dataBaseInstance!!.GastoDao().obtenerGasto()
-
-      withContext(Dispatchers.Main) {
-        adapterGastos = listGastos?.let { GastoAdapter(it) }!!
+  private fun observeEvents() {
+    viewModel.listGastos.observe(this, Observer { list ->
+      list?.let {
+        Log.e("Cargando Datos", list.size.toString())
+        adapterGastos = GastoAdapter(it)
         binding.rvRecycler.adapter = adapterGastos
         adapterGastos.notifyDataSetChanged()
-
       }
-    }
+    })
+
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -73,13 +63,7 @@ class MainActivity : AppCompatActivity() {
     return super.onCreateOptionsMenu(menu)
   }
 
-  companion object {
-    var listGastos: MutableList<GastoModel> = mutableListOf()
-    var dataBaseInstance: RoomDabase? = null
-  }
-
   override fun onRestart() {
-    cargarDatos()
     super.onRestart()
   }
 

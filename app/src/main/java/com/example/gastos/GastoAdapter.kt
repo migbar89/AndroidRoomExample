@@ -7,7 +7,7 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gastos.databinding.ItemGastoBinding
 
-class GastoAdapter(var datalist: MutableList<GastoModel>) : RecyclerView.Adapter<GastoAdapter.GastoHolder>() {
+class GastoAdapter(var datalist: List<GastoModel>) : RecyclerView.Adapter<GastoAdapter.GastoHolder>() {
 
   inner class GastoHolder(val binding: ItemGastoBinding) : RecyclerView.ViewHolder(binding.root)
 
