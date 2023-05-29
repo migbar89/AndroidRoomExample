@@ -40,7 +40,6 @@ class MainActivity : AppCompatActivity() {
   private fun observeEvents() {
     viewModel.listGastos.observe(this, Observer { list ->
       list?.let {
-        Log.e("Cargando Datos", list.size.toString())
         adapterGastos = GastoAdapter(it)
         binding.rvRecycler.adapter = adapterGastos
         adapterGastos.notifyDataSetChanged()

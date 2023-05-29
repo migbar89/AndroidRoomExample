@@ -14,6 +14,7 @@ class ActivityAdd : AppCompatActivity() {
   private lateinit var binding: ActivityAddBinding
   private lateinit var viewModel: GastoViewModel
 
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     binding = ActivityAddBinding.inflate(layoutInflater)
@@ -36,7 +37,7 @@ class ActivityAdd : AppCompatActivity() {
       binding.etAmount.text.toString().toInt(),
       "Pending"
     )
-    viewModel.insertProduct(newGasto)
+    viewModel.insertGasto(newGasto)
 
     this.finish()
 

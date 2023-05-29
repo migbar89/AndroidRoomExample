@@ -16,4 +16,6 @@ class GastoRepository constructor(
   suspend fun guardarGasto(gasto: GastoModel){
     GastoDao.guardarGasto(gasto)
   }
+
+  //Create Funcion to Delete
 }

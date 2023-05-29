@@ -20,6 +20,6 @@ class GastoViewModel(application: Application) : AndroidViewModel(application) {
     repository = GastoRepository(gastoDao)
     listGastos = repository.ObtenerTodosGastos()
   }
-  fun insertProduct(gasto: GastoModel) =
+  fun insertGasto(gasto: GastoModel) =
     viewModelScope.launch(Dispatchers.IO) { repository.guardarGasto(gasto) }
 }
