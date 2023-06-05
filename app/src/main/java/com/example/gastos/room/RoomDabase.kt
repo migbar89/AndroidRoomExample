@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.example.gastos.GastoModel
+import com.example.gastos.room.GastoModel
 
 @Database(entities = [GastoModel::class], version = 2)
 abstract class RoomDabase : RoomDatabase() {

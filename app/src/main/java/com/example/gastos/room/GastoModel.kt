@@ -1,4 +1,4 @@
-package com.example.gastos
+package com.example.gastos.room
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

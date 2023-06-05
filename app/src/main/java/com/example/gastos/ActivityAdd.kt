@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.gastos.databinding.ActivityAddBinding
+import com.example.gastos.room.GastoModel
 import com.example.gastos.viewModel.GastoViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch

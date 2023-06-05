@@ -3,7 +3,7 @@ package com.example.gastos.repository
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.asLiveData
-import com.example.gastos.GastoModel
+import com.example.gastos.room.GastoModel
 import com.example.gastos.room.GastoDao
 
 

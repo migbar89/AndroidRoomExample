@@ -5,7 +5,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.gastos.GastoModel
+import com.example.gastos.room.GastoModel
 import com.example.gastos.repository.GastoRepository
 import com.example.gastos.room.RoomDabase
 import kotlinx.coroutines.Dispatchers

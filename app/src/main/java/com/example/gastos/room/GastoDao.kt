@@ -3,7 +3,7 @@ package com.example.gastos.room
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.room.*
-import com.example.gastos.GastoModel
+import com.example.gastos.room.GastoModel
 import kotlinx.coroutines.flow.Flow
 
 @Dao

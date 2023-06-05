@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gastos.databinding.ItemGastoBinding
+import com.example.gastos.room.GastoModel
 
 class GastoAdapter(var datalist: List<GastoModel>) : RecyclerView.Adapter<GastoAdapter.GastoHolder>() {
 
