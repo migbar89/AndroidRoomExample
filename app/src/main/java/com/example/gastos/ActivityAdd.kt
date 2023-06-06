@@ -34,13 +34,21 @@ class ActivityAdd : AppCompatActivity() {
 
   suspend fun Save() {
     var newGasto = GastoModel(0,
-      binding.etName.text.toString(), binding.etFecha.text.toString(),
+      binding.etName.text.toString(),
+      binding.etFecha.text.toString(),
       binding.etAmount.text.toString().toInt(),
       "Pending"
     )
-    viewModel.insertGasto(newGasto)
+//    var newGasto = GastoModel(0,
+//      "ddddd", "2023-03-03",
+//      6000,
+//      "Pending"
+//    )
+    //viewModel.insertGasto(newGasto)
+    viewModel.insertGastoApi(newGasto)
 
-    this.finish()
+
+    //this.finish()
 
   }
 
