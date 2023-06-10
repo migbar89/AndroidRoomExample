@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gastos.databinding.ActivityMainBinding
+import com.example.gastos.room.GastoModel
 import com.example.gastos.room.RoomDabase
 import com.example.gastos.viewModel.GastoViewModel
 import kotlinx.coroutines.Dispatchers
@@ -51,6 +52,7 @@ class MainActivity : AppCompatActivity() {
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     if (item.itemId == R.id.menu_add_gasto) {
       var intent = Intent(this, ActivityAdd::class.java)
+      isEdit = false
       startActivity(intent)
     }
     return super.onOptionsItemSelected(item)
@@ -64,6 +66,10 @@ class MainActivity : AppCompatActivity() {
 
   override fun onRestart() {
     super.onRestart()
+  }
+  companion object {
+    var isEdit = false
+    lateinit var gastoSelect : GastoModel
   }
 
 

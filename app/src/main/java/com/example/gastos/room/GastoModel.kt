@@ -7,8 +7,9 @@ import java.util.Date
 @Entity(tableName = "gasto")
 data class GastoModel(
   @PrimaryKey(autoGenerate = true)  @ColumnInfo(name = "id") val id: Int,
-  @ColumnInfo(name = "name")  val name: String,
+  @ColumnInfo(name = "name") var name: String,
   @ColumnInfo(name = "date")  val date: String,
-  @ColumnInfo(name = "amount")  val amount: Int,
+  @ColumnInfo(name = "amount") var amount: Long,
   @ColumnInfo(name = "state")  val state: String,
+  val idFirestore: String ?
   )

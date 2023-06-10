@@ -25,8 +25,11 @@ class GastoAdapter(var datalist: List<GastoModel>) : RecyclerView.Adapter<GastoA
     holder.binding.tvState.text = item.state.toString()
     holder.binding.ivEdit.setOnClickListener {
       var intent = Intent(holder.binding.root.context, ActivityAdd::class.java)
+      MainActivity.isEdit = true
+      MainActivity.gastoSelect = item
       holder.binding.root.context.startActivity(intent)
     }
+
   }
 
   override fun getItemCount(): Int {

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "193747276108",
+    "project_id": "test-kotlin-ab593",
+    "storage_bucket": "test-kotlin-ab593.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193747276108:android:9e4d0af6c9b87d0ee5ffe9",
+        "android_client_info": {
+          "package_name": "com.example.gastos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193747276108-cckmtbsire4chja7c3teocrf2kjt90ot.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkxNDE6NrXN69GIko2GnRaTSrkl3-Yyg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193747276108-cckmtbsire4chja7c3teocrf2kjt90ot.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
